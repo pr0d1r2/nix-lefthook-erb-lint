@@ -1,0 +1,14 @@
+---
+pre-commit:
+  commands:
+    erb-lint:
+      glob: "**/*.html.erb"
+      run: bundle exec erb_lint {staged_files}
+      timeout: 30s
+
+pre-push:
+  commands:
+    erb-lint:
+      glob: "**/*.html.erb"
+      run: bundle exec erb_lint {push_files}
+      timeout: 30s
